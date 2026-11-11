@@ -15,4 +15,4 @@ A modern digital studio website with a dark visual identity.
 ## Development
 
 Primary development environment: MacBook.
-Repository: https://github.com/naufalhanifr/novalab
+Repository: https://github.com/naufalhanifr/evora
