@@ -5,15 +5,15 @@ Visual identity is unchanged: a dark, monochrome, modern studio look. Only the n
 
 ## Files
 
-| Asset | SVG | PNG |
-|---|---|---|
-| Wordmark for dark backgrounds | `evora-wordmark-on-dark.svg` | `evora-wordmark-on-dark.png` |
-| Wordmark for light backgrounds | `evora-wordmark-on-light.svg` | `evora-wordmark-on-light.png` |
-| Symbol ("e") for dark backgrounds | `evora-symbol-on-dark.svg` | `evora-symbol-on-dark.png` |
-| Symbol ("e") for light backgrounds | `evora-symbol-on-light.svg` | `evora-symbol-on-light.png` |
-| App icon / favicon (rounded) | `evora-app-icon.svg` | `favicon-32.png`, `evora-app-icon-512.png` |
-| Apple touch icon (square, iOS masks it) | `evora-app-icon-square.svg` | `apple-touch-icon-180.png` |
-| Open Graph / social share | `evora-og.svg` | `evora-og-1200x630.png` |
+| Asset                                   | SVG                           | PNG                                        |
+| --------------------------------------- | ----------------------------- | ------------------------------------------ |
+| Wordmark for dark backgrounds           | `evora-wordmark-on-dark.svg`  | `evora-wordmark-on-dark.png`               |
+| Wordmark for light backgrounds          | `evora-wordmark-on-light.svg` | `evora-wordmark-on-light.png`              |
+| Symbol ("e") for dark backgrounds       | `evora-symbol-on-dark.svg`    | `evora-symbol-on-dark.png`                 |
+| Symbol ("e") for light backgrounds      | `evora-symbol-on-light.svg`   | `evora-symbol-on-light.png`                |
+| App icon / favicon (rounded)            | `evora-app-icon.svg`          | `favicon-32.png`, `evora-app-icon-512.png` |
+| Apple touch icon (square, iOS masks it) | `evora-app-icon-square.svg`   | `apple-touch-icon-180.png`                 |
+| Open Graph / social share               | `evora-og.svg`                | `evora-og-1200x630.png`                    |
 
 Next.js usage (App Router `metadata`):
 
@@ -30,10 +30,10 @@ openGraph: { images: [{ url: "/brand/evora-og-1200x630.png", width: 1200, height
 
 ## Colors
 
-| Token | Hex | Use |
-|---|---|---|
-| Ink | `#0B0B0F` | Main dark background; logo on light backgrounds |
-| Paper | `#F4F4F5` | Logo on dark backgrounds; light background |
+| Token | Hex       | Use                                             |
+| ----- | --------- | ----------------------------------------------- |
+| Ink   | `#0B0B0F` | Main dark background; logo on light backgrounds |
+| Paper | `#F4F4F5` | Logo on dark backgrounds; light background      |
 
 The logo is always single-color: Paper on dark, Ink on light. Do not add gradients, outlines, or other colors to it.
 

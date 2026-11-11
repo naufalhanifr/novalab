@@ -19,11 +19,17 @@ const STROKE = 16; // stroke weight on a 100-unit x-height
 
 // Glyphs drawn on a 100-unit x-height grid (geometric, monoline).
 const glyph = {
-  e: { w: 100, d: `<path d="M8 50H92A42 42 0 1 0 79.7 79.7" fill="none" stroke-width="${STROKE}"/>` },
+  e: {
+    w: 100,
+    d: `<path d="M8 50H92A42 42 0 1 0 79.7 79.7" fill="none" stroke-width="${STROKE}"/>`,
+  },
   v: { w: 90, d: `<path d="M0 0H18L45 74L72 0H90L54 100H36Z" stroke="none"/>` },
   o: { w: 100, d: `<circle cx="50" cy="50" r="42" fill="none" stroke-width="${STROKE}"/>` },
   r: { w: 60, d: `<path d="M8 100V50A42 42 0 0 1 50 8H60" fill="none" stroke-width="${STROKE}"/>` },
-  a: { w: 100, d: `<circle cx="50" cy="50" r="42" fill="none" stroke-width="${STROKE}"/><path d="M92 0V100" fill="none" stroke-width="${STROKE}"/>` },
+  a: {
+    w: 100,
+    d: `<circle cx="50" cy="50" r="42" fill="none" stroke-width="${STROKE}"/><path d="M92 0V100" fill="none" stroke-width="${STROKE}"/>`,
+  },
 };
 const TRACK = 14;
 
@@ -43,23 +49,35 @@ const svg = (w, h, body, title) =>
 const files = {};
 
 // 1. Wordmark (transparent background), dark-bg and light-bg variants.
-for (const [name, color] of [["evora-wordmark-on-dark", PAPER], ["evora-wordmark-on-light", INK]]) {
+for (const [name, color] of [
+  ["evora-wordmark-on-dark", PAPER],
+  ["evora-wordmark-on-light", INK],
+]) {
   const { width, g } = wordmarkGroup(color);
   files[`${name}.svg`] = svg(width, 100, g, "Evora");
 }
 
 // 2. Symbol: the "e" glyph alone (transparent), both variants.
-for (const [name, color] of [["evora-symbol-on-dark", PAPER], ["evora-symbol-on-light", INK]]) {
-  files[`${name}.svg`] = svg(100, 100, `<g fill="${color}" stroke="${color}">${glyph.e.d}</g>`, "Evora");
+for (const [name, color] of [
+  ["evora-symbol-on-dark", PAPER],
+  ["evora-symbol-on-light", INK],
+]) {
+  files[`${name}.svg`] = svg(
+    100,
+    100,
+    `<g fill="${color}" stroke="${color}">${glyph.e.d}</g>`,
+    "Evora",
+  );
 }
 
 // 3. App icon: symbol on a dark rounded square (used for favicon / touch / PWA).
 const appIcon = (radius) =>
   svg(
-    512, 512,
+    512,
+    512,
     `<rect width="512" height="512" rx="${radius}" fill="${INK}"/>` +
       `<g transform="translate(136 136) scale(2.4)" fill="${PAPER}" stroke="${PAPER}">${glyph.e.d}</g>`,
-    "Evora"
+    "Evora",
   );
 files["evora-app-icon.svg"] = appIcon(112);
 files["evora-app-icon-square.svg"] = appIcon(0); // iOS applies its own mask
@@ -96,7 +114,8 @@ png("evora-symbol-on-light.svg", "evora-symbol-on-light.png", 512);
 
 // Review preview sheet (not shipped to site).
 {
-  const dark = wordmarkGroup(PAPER), light = wordmarkGroup(INK);
+  const dark = wordmarkGroup(PAPER),
+    light = wordmarkGroup(INK);
   const body =
     `<rect width="1200" height="900" fill="#FFFFFF"/>` +
     `<rect x="0" y="0" width="1200" height="300" fill="${INK}"/><g transform="translate(${(1200 - dark.width) / 2} 100)">${dark.g}</g>` +
@@ -107,8 +126,13 @@ png("evora-symbol-on-light.svg", "evora-symbol-on-light.png", 512);
     `<g transform="translate(600 734)"><rect width="32" height="32" rx="7" fill="${INK}"/><g transform="translate(8.5 8.5) scale(0.15)" fill="${PAPER}" stroke="${PAPER}">${glyph.e.d}</g></g>` +
     `<g transform="translate(720 700)"><rect width="100" height="100" fill="${PAPER}"/><g transform="translate(20 20) scale(0.6)" fill="${INK}" stroke="${INK}">${glyph.e.d}</g></g>` +
     `<g transform="translate(900 700)"><rect width="100" height="100" fill="${INK}" stroke="#55556A"/><g transform="translate(20 20) scale(0.6)" fill="${PAPER}" stroke="${PAPER}">${glyph.e.d}</g></g>`;
-  const r = new Resvg(svg(1200, 900, body, "Evora preview"), { fitTo: { mode: "width", value: 1200 } });
-  writeFileSync(join(process.env.PREVIEW_DIR || out, "evora-brand-preview.png"), r.render().asPng());
+  const r = new Resvg(svg(1200, 900, body, "Evora preview"), {
+    fitTo: { mode: "width", value: 1200 },
+  });
+  writeFileSync(
+    join(process.env.PREVIEW_DIR || out, "evora-brand-preview.png"),
+    r.render().asPng(),
+  );
 }
 
 console.log("Wrote", Object.keys(files).length, "SVGs + PNG exports to", out);
