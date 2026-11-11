@@ -14,7 +14,7 @@ Status: **DRAF**. Bagian bertanda ⏳ belum diuji di environment sebenarnya kare
 
 Environment:
 
-- **Production**: hanya dari branch `main` lewat workflow `deploy-prod` dan GitHub Environment `production`. URL: `vars.PROD_URL` (domain TBC-04), fallback `https://novalab.pages.dev`.
+- **Production**: hanya dari branch `main` lewat workflow `deploy-prod` dan GitHub Environment `production`. URL: `vars.PROD_URL` (domain TBC-04), fallback `https://novalab.pages.dev`. Status 2026-11-11: `novalab.com` (pilihan Founder) sudah terdaftar pihak lain sejak 1996 dan terkunci (RDAP), jadi production/HSTS di domain kustom menunggu keputusan domain pengganti. Preview di `*.pages.dev` tidak terdampak.
 - **Preview/staging**: setiap push ke branch selain `main` → `https://<branch>.novalab.pages.dev`. Dilindungi Cloudflare Access dan `X-Robots-Tag: noindex`.
 
 ## Prasyarat (sekali saja, oleh pemilik akun)

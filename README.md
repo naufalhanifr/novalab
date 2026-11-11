@@ -6,6 +6,13 @@ Official website of NØVA Lab.
 
 - Astro (static output) + TypeScript + Tailwind CSS (decision D1, NVA-4)
 - Hosting: Cloudflare Pages (D2), contact form via Pages Function (D3)
+- Light visual theme; English-only MVP (`lang="en"`), UI strings in `src/i18n/ui.ts` (PRD v0.2)
+
+## Repository layout
+
+- `src/` site source, `public/` static files served as-is (incl. `_headers`), `functions/` Pages Functions
+- `aset/` brand source files (not deployed), see [aset/README.md](aset/README.md)
+- `docs/ops/` runbook
 
 ## Development
 
