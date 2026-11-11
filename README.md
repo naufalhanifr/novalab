@@ -1,6 +1,6 @@
-# NOVA Lab Website
+# Evora Website
 
-Official website of NOVA Lab.
+Official website of Evora.
 
 ## Project Overview
 
