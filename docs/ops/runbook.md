@@ -27,8 +27,11 @@ Environment:
    - `CF_ACCESS_CLIENT_ID`, `CF_ACCESS_CLIENT_SECRET` (service token Access untuk cek header di preview)
 4. Cloudflare Access: aplikasi self-hosted untuk `*.novalab.pages.dev` (policy: email domain perusahaan + service token CI). Production tidak ikut dilindungi.
 5. GitHub Environment `production`: deployment branch hanya `main`, required reviewer opsional.
+   > ✅ Sudah dibuat 2026-11-11 (deployment branch policy: `main` saja, tanpa required reviewer).
 6. Variabel Pages project: `FORM_MODE=dry-run` (production dan preview). Lalu set repo variable `CF_PAGES_ENABLED=true` untuk mengaktifkan job deploy.
 7. Branch protection `main`: wajib PR, status check `verify` (workflow `ci`) harus hijau, larang force push dan penghapusan branch.
+   > ✅ Aktif 2026-11-11: wajib PR (0 approval karena admin baru 1), check `verify` wajib dan branch harus up to date (strict), linear history (merge pakai squash/rebase), percakapan review harus resolved, force push dan penghapusan dilarang. `enforce_admins` mati supaya admin tunggal tetap bisa memperbaiki darurat. Saat pindah ke Org dengan ≥ 2 admin: naikkan ke 1 approval dan nyalakan `enforce_admins`.
+   > ⚠️ Repo saat ini **publik**, belum privat sesuai D9. Di akun personal GitHub Free, branch protection tidak berlaku untuk repo privat, jadi mengubah ke privat tanpa GitHub Pro/Org berbayar akan menonaktifkan aturan di atas.
 
 ## Deploy
 
