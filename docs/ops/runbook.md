@@ -20,6 +20,7 @@ Environment:
 ## Prasyarat (sekali saja, oleh pemilik akun)
 
 1. GitHub Org (D7), repo privat (D9), 2FA wajib, ≥ 2 admin.
+   > **Pengecualian sementara (keputusan board 2026-11-11):** repo tetap di akun personal `naufalhanifr/novalab` dulu. Risikonya: hanya 1 admin (bus factor), dan secret serta Environment terikat ke akun personal. Saat pindah ke Org: `Settings › Transfer`, lalu verifikasi secret, variable, Environment `production`, dan branch protection masih ada, terapkan aturan Org (2FA, ≥ 2 admin), dan update remote lokal (`git remote set-url`). Jalankan ulang workflow `preview` sebagai bukti setelah pindah.
 2. Akun Cloudflare perusahaan (2FA, ≥ 2 admin). Buat project Pages **Direct Upload** bernama `novalab` dengan production branch `main`.
 3. API token Cloudflare: permission `Account › Cloudflare Pages › Edit`, dibatasi ke akun ini saja. Simpan sebagai secret GitHub Actions:
    - `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`
