@@ -20,6 +20,7 @@ Environment:
 ## Prasyarat (sekali saja, oleh pemilik akun)
 
 1. GitHub Org (D7), repo privat (D9), 2FA wajib, ≥ 2 admin.
+   > ✅ Repo **privat** sejak 2026-11-11 (D9), masih di akun personal GitHub Free.
    > **Pengecualian sementara (keputusan board 2026-11-11):** repo tetap di akun personal `naufalhanifr/novalab` dulu. Risikonya: hanya 1 admin (bus factor), dan secret serta Environment terikat ke akun personal. Saat pindah ke Org: `Settings › Transfer`, lalu verifikasi secret, variable, Environment `production`, dan branch protection masih ada, terapkan aturan Org (2FA, ≥ 2 admin), dan update remote lokal (`git remote set-url`). Jalankan ulang workflow `preview` sebagai bukti setelah pindah.
 2. Akun Cloudflare perusahaan (2FA, ≥ 2 admin). Buat project Pages **Direct Upload** bernama `novalab` dengan production branch `main`.
 3. API token Cloudflare: permission `Account › Cloudflare Pages › Edit`, dibatasi ke akun ini saja. Simpan sebagai secret GitHub Actions:
@@ -28,10 +29,21 @@ Environment:
 4. Cloudflare Access: aplikasi self-hosted untuk `*.novalab.pages.dev` (policy: email domain perusahaan + service token CI). Production tidak ikut dilindungi.
 5. GitHub Environment `production`: deployment branch hanya `main`, required reviewer opsional.
    > ✅ Sudah dibuat 2026-11-11 (deployment branch policy: `main` saja, tanpa required reviewer).
+   > ⚠️ Sejak repo privat di GitHub Free (2026-11-11), deployment branch policy dan environment protection **tidak ditegakkan** GitHub. Pembatas yang tetap berlaku: `deploy-prod.yml` hanya terpicu `push` ke `main`, dan job-nya dijaga `if: github.ref == 'refs/heads/main'`.
 6. Variabel Pages project: `FORM_MODE=dry-run` (production dan preview). Lalu set repo variable `CF_PAGES_ENABLED=true` untuk mengaktifkan job deploy.
 7. Branch protection `main`: wajib PR, status check `verify` (workflow `ci`) harus hijau, larang force push dan penghapusan branch.
-   > ✅ Aktif 2026-11-11: wajib PR (0 approval karena admin baru 1), check `verify` wajib dan branch harus up to date (strict), linear history (merge pakai squash/rebase), percakapan review harus resolved, force push dan penghapusan dilarang. `enforce_admins` mati supaya admin tunggal tetap bisa memperbaiki darurat. Saat pindah ke Org dengan ≥ 2 admin: naikkan ke 1 approval dan nyalakan `enforce_admins`.
-   > ⚠️ Repo saat ini **publik**, belum privat sesuai D9. Di akun personal GitHub Free, branch protection tidak berlaku untuk repo privat, jadi mengubah ke privat tanpa GitHub Pro/Org berbayar akan menonaktifkan aturan di atas.
+   > Dikonfigurasi 2026-11-11 (aktif selama repo publik): wajib PR (0 approval karena admin baru 1), check `verify` wajib dan branch harus up to date (strict), linear history (merge pakai squash/rebase), percakapan review harus resolved, force push dan penghapusan dilarang. `enforce_admins` mati supaya admin tunggal tetap bisa memperbaiki darurat. Saat pindah ke Org dengan ≥ 2 admin: naikkan ke 1 approval dan nyalakan `enforce_admins`.
+   > ⛔ **Nonaktif sejak 2026-11-11.** Atas keputusan board, repo dijadikan **privat** (D9) dan tetap di GitHub Free. Untuk repo privat di Free, GitHub tidak menegakkan branch protection (API: `403 Upgrade to GitHub Pro`). Aturan di atas adalah konfigurasi target saat repo pindah ke Pro/Org berbayar.
+   >
+   > **Disiplin manual selama Free + privat** (tidak dipaksa sistem):
+   >
+   > - Semua perubahan lewat PR. Jangan push langsung ke `main`; push ke `main` langsung memicu deploy production setelah Cloudflare aktif.
+   > - Merge hanya jika check `verify` hijau dan branch up to date. Pakai squash/rebase merge.
+   > - Jangan force push atau hapus `main`.
+   > - Tambahan risiko: secret Actions (termasuk `CLOUDFLARE_API_TOKEN`) bisa dibaca workflow dari branch mana pun, karena environment secret tidak tersedia. Batasi collaborator dengan akses write.
+   > - Kuota Actions repo privat di Free: 2.000 menit/bulan. Pantau di `Settings › Billing`; LHCI di setiap PR adalah konsumen terbesar.
+   >
+   > Untuk mengaktifkan kembali: upgrade ke GitHub Pro (US$4/bulan, masih di bawah plafon D10) atau pindah ke Org Team. Setelah itu terapkan ulang aturan di atas lewat API `PUT /repos/{owner}/{repo}/branches/main/protection`.
 
 ## Deploy
 
