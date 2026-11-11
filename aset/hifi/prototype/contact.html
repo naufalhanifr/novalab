@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact | NOVA Lab</title>
+    <meta
+      name="description"
+      content="Contact NOVA Lab about UI/UX design, animation, or website development. Use the form or email us directly."
+    />
+    <link rel="icon" href="../../favicon/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="assets/proto.css" />
+  </head>
+  <body data-page="contact">
+    <div id="header-slot"></div>
+    <main id="main">
+      <section class="page-hero">
+        <div class="container">
+          <h1 class="t-h1">Contact us</h1>
+          <p class="t-body-lg muted measure">
+            Tell us about your project or question. Fill in the form, or email us directly.
+          </p>
+        </div>
+      </section>
+      <section class="section" style="padding-top: 0">
+        <div class="container form-layout">
+          <div id="form-wrap">
+            <div id="form-status" hidden style="margin-bottom: 24px"></div>
+            <form id="contact-form" class="form" novalidate aria-describedby="req-note">
+              <p class="t-small muted" id="req-note">
+                Fields marked <span class="req" aria-hidden="true">*</span> are required.
+              </p>
+              <div class="form-row form-row--2">
+                <div class="field">
+                  <label for="name">Name<span class="req" aria-hidden="true">*</span></label>
+                  <input
+                    class="input"
+                    id="name"
+                    name="name"
+                    autocomplete="name"
+                    required
+                    aria-describedby="name-error"
+                  />
+                  <p class="field-error" id="name-error">
+                    <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+                      <path
+                        fill="currentColor"
+                        d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13Zm-.75 3.25h1.5v4.5h-1.5v-4.5Zm0 5.75h1.5V12h-1.5v-1.5Z"
+                      /></svg
+                    ><span></span>
+                  </p>
+                </div>
+                <div class="field">
+                  <label for="email">Email<span class="req" aria-hidden="true">*</span></label>
+                  <input
+                    class="input"
+                    id="email"
+                    name="email"
+                    type="email"
+                    inputmode="email"
+                    autocomplete="email"
+                    required
+                    aria-describedby="email-error"
+                  />
+                  <p class="field-error" id="email-error">
+                    <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+                      <path
+                        fill="currentColor"
+                        d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13Zm-.75 3.25h1.5v4.5h-1.5v-4.5Zm0 5.75h1.5V12h-1.5v-1.5Z"
+                      /></svg
+                    ><span></span>
+                  </p>
+                </div>
+              </div>
+              <div class="field">
+                <label for="org">Organization <span class="optional">(optional)</span></label>
+                <input class="input" id="org" name="organization" autocomplete="organization" />
+              </div>
+              <div class="field">
+                <label for="topic">Topic<span class="req" aria-hidden="true">*</span></label>
+                <select
+                  class="select"
+                  id="topic"
+                  name="topic"
+                  required
+                  aria-describedby="topic-error"
+                >
+                  <option value="">Choose a topic</option>
+                  <option value="project-inquiry">Project inquiry</option>
+                  <option value="products">Products</option>
+                  <option value="careers">Careers or collaboration</option>
+                  <option value="media">Media</option>
+                  <option value="other">Other</option>
+                </select>
+                <p class="field-error" id="topic-error">
+                  <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+                    <path
+                      fill="currentColor"
+                      d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13Zm-.75 3.25h1.5v4.5h-1.5v-4.5Zm0 5.75h1.5V12h-1.5v-1.5Z"
+                    /></svg
+                  ><span></span>
+                </p>
+              </div>
+              <div class="field">
+                <label for="message">Message<span class="req" aria-hidden="true">*</span></label>
+                <textarea
+                  class="textarea"
+                  id="message"
+                  name="message"
+                  rows="6"
+                  required
+                  aria-describedby="message-error message-count"
+                ></textarea>
+                <div class="field-meta">
+                  <p class="field-error" id="message-error">
+                    <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+                      <path
+                        fill="currentColor"
+                        d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13Zm-.75 3.25h1.5v4.5h-1.5v-4.5Zm0 5.75h1.5V12h-1.5v-1.5Z"
+                      /></svg
+                    ><span></span>
+                  </p>
+                  <span class="counter" id="message-count">0 / 5,000</span>
+                </div>
+              </div>
+              <div class="honeypot" aria-hidden="true">
+                <label for="website">Website</label
+                ><input id="website" name="website" tabindex="-1" autocomplete="off" />
+              </div>
+              <div class="field">
+                <label class="check" for="consent">
+                  <input
+                    type="checkbox"
+                    id="consent"
+                    name="consent"
+                    required
+                    aria-describedby="consent-error"
+                  />
+                  <span
+                    >I agree that NOVA Lab may use my details to reply to this message, as described
+                    in the <a class="link" href="privacy.html">Privacy Policy</a>.<span
+                      class="req"
+                      aria-hidden="true"
+                      >*</span
+                    ></span
+                  >
+                </label>
+                <p class="field-error" id="consent-error">
+                  <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+                    <path
+                      fill="currentColor"
+                      d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13Zm-.75 3.25h1.5v4.5h-1.5v-4.5Zm0 5.75h1.5V12h-1.5v-1.5Z"
+                    /></svg
+                  ><span></span>
+                </p>
+              </div>
+              <div>
+                <button class="btn btn--primary btn--block-mobile" id="submit" type="submit">
+                  Send message
+                </button>
+              </div>
+            </form>
+          </div>
+          <aside aria-labelledby="direct-title">
+            <div class="aside-card">
+              <h2 id="direct-title">Prefer email?</h2>
+              <p class="muted">Write to us directly. Either way reaches the same team.</p>
+              <a class="link email" href="mailto:naufalhanifr001@gmail.com"
+                ><svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.75"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <rect x="3" y="5" width="18" height="14" rx="2" />
+                  <path d="M3.5 6.5 12 13l8.5-6.5" /></svg
+                >naufalhanifr001@gmail.com</a
+              >
+            </div>
+          </aside>
+        </div>
+      </section>
+      <details class="proto-panel" open aria-label="Prototype controls (design only)">
+        <summary><strong>Prototype only: submit outcome</strong></summary>
+        <label><input type="radio" name="sim" value="success" checked /> Success</label>
+        <label><input type="radio" name="sim" value="fail" /> Network/server error</label>
+        <label><input type="radio" name="sim" value="ratelimit" /> Rate limited</label>
+      </details>
+    </main>
+    <div id="footer-slot"></div>
+    <script src="assets/proto.js"></script>
+  </body>
+</html>
