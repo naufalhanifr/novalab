@@ -1,6 +1,6 @@
 # aset/ — brand source files
 
-Source files for the NØVA Lab brand (logo SVG, favicon masters, OG image templates). Owner: Hasim ([NVA-8](/NVA/issues/NVA-8)).
+Source files for the Evora brand (logo SVG, favicon masters, OG image templates). Owner: Hasim ([NVA-8](/NVA/issues/NVA-8)).
 
 - This folder is **not deployed**. Only `public/` is served by Cloudflare Pages.
 - Web-ready exports (e.g. `favicon.svg`, `og-default.png`) go to `public/` or `src/assets/`, in a separate commit/PR coordinated with the frontend (Al).

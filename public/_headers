@@ -12,5 +12,5 @@
   Cache-Control: public, max-age=31536000, immutable
 
 # Preview deployments (per-branch / per-commit subdomains) must never be indexed.
-https://:sub.novalab.pages.dev/*
+https://:sub.evora.pages.dev/*
   X-Robots-Tag: noindex, nofollow

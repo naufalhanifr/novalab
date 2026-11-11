@@ -16,7 +16,7 @@ concurrency:
 
 env:
   ASTRO_TELEMETRY_DISABLED: "1"
-  PROJECT: ${{ vars.CF_PAGES_PROJECT || 'novalab' }}
+  PROJECT: ${{ vars.CF_PAGES_PROJECT || 'evora' }}
 
 jobs:
   ci:

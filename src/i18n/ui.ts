@@ -4,7 +4,7 @@
 export const lang = "en" as const;
 
 export const site = {
-  name: "NØVA Lab",
+  name: "Evora",
   // Public contact address; used as the fallback in form error messages.
   // NOT the form delivery target (TBC-15 is still open).
   contactEmail: "naufalhanifr001@gmail.com",
@@ -12,11 +12,11 @@ export const site = {
 
 export const ui = {
   home: {
-    title: "NØVA Lab",
+    title: "Evora",
     placeholder: "Placeholder scaffold. Page content will come from the frontend team.",
   },
   notFound: {
-    title: "404 — Page not found | NØVA Lab",
+    title: "404 — Page not found | Evora",
     heading: "404",
     body: "Page not found.",
     back: "Back to home",
