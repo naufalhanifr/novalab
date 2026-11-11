@@ -1,0 +1,15 @@
+---
+import Base from "../layouts/Base.astro";
+import { ui } from "../i18n/ui";
+const t = ui.notFound;
+---
+
+<Base title={t.title}>
+  <main class="mx-auto max-w-3xl px-6 py-24">
+    <h1 class="text-4xl font-semibold">{t.heading}</h1>
+    <p class="mt-4 text-neutral-600">{t.body}</p>
+    <a href="/" class="mt-8 inline-block underline">
+      {t.back}
+    </a>
+  </main>
+</Base>
