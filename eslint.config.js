@@ -8,5 +8,8 @@ export default [
   js.configs.recommended,
   ...tseslint.configs.recommended,
   ...astro.configs.recommended,
-  { files: ["*.config.{js,mjs,ts}"], languageOptions: { globals: globals.node } },
+  {
+    files: ["*.config.{js,mjs,ts}", "scripts/**/*.{js,mjs}"],
+    languageOptions: { globals: globals.node },
+  },
 ];
