@@ -1,0 +1,944 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Design system | NOVA Lab (NVA-8)</title>
+    <link rel="stylesheet" href="assets/proto.css" />
+    <style>
+      .ds h2.sec {
+        font: 700 26px/34px var(--font-display);
+        margin: 64px 0 8px;
+        padding-top: 24px;
+        border-top: 1px solid var(--color-border);
+      }
+      .ds .lead {
+        margin-bottom: 24px;
+      }
+      .sws {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 16px;
+      }
+      .sw .chip {
+        height: 64px;
+        border-radius: 8px;
+        border: 1px solid var(--color-border);
+        margin-bottom: 8px;
+      }
+      .trow {
+        display: grid;
+        gap: 4px;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--color-border);
+      }
+      .sprow {
+        display: grid;
+        grid-template-columns: 80px 1fr 40px;
+        align-items: center;
+        gap: 12px;
+        min-height: 24px;
+      }
+      .sprow .bar {
+        height: 12px;
+        background: var(--color-primary-tint);
+        border-left: 2px solid var(--color-primary);
+      }
+      .states {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 24px 16px;
+        align-items: start;
+        margin-bottom: 16px;
+      }
+      .states.wide {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      }
+      .states.wide2 {
+        grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+      }
+      @media (max-width: 767px) {
+        .states.wide2,
+        .states.wide {
+          grid-template-columns: 1fr;
+        }
+      }
+      .state {
+        display: grid;
+        gap: 8px;
+        justify-items: start;
+      }
+      .state > .field,
+      .state > .card,
+      .state > .banner,
+      .state > .success-panel {
+        width: 100%;
+      }
+      .row-title {
+        margin: 16px 0 8px;
+      }
+      .darkbox {
+        background: #0b0f19;
+        padding: 16px 24px;
+        border-radius: 16px;
+        margin-top: 16px;
+      }
+      .darkbox .t-small {
+        color: #aab2c0;
+      }
+      .navdemo {
+        display: flex !important;
+      }
+      .navdemo a {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        color: var(--color-ink);
+        text-decoration: none;
+        font-weight: 500;
+      }
+      .navdemo a.is-hover {
+        color: var(--color-primary);
+      }
+      .navdemo a[aria-current="page"] {
+        font-weight: 600;
+      }
+      .navdemo a[aria-current="page"]::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 4px;
+        height: 2px;
+        background: var(--color-primary);
+      }
+      .menu-btn {
+        display: inline-flex !important;
+      }
+      .mobile-menu.demo {
+        position: static;
+        width: 100%;
+        border: 1px solid var(--color-border);
+        display: block !important;
+      }
+      .grid-2c {
+        display: grid;
+        gap: 32px;
+      }
+      @media (min-width: 1024px) {
+        .grid-2c {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body class="ds is-frame">
+    <main class="container" style="padding-top: 48px; padding-bottom: 96px">
+      <p class="t-eyebrow">NVA-8 · Design system v1.0 · light theme</p>
+      <h1 class="t-h1" style="margin-top: 8px">NOVA Lab design system</h1>
+      <p class="t-body-lg muted measure" style="margin-top: 12px">
+        Tokens and components used by the high-fi frames. Source of truth for values:
+        <code>aset/tokens/tokens.json</code>. Every interactive state below is a forced-state render
+        of the same CSS used in the prototype.
+      </p>
+      <h2 class="sec">Logo</h2>
+      <p class="lead muted">
+        SVGs carry <code>&lt;title&gt;NOVA Lab&lt;/title&gt;</code> and
+        <code>aria-label="NOVA Lab"</code>. Clear space: 1× cap height on all sides. Minimum cap
+        height 16px.
+      </p>
+      <div class="states wide">
+        <div class="state">
+          <p class="t-small muted">Color (light bg)</p>
+          <img src="../../logo/novalab-logo-color.svg" alt="NOVA Lab" style="height: 40px" />
+        </div>
+        <div class="state">
+          <p class="t-small muted">Mono</p>
+          <img src="../../logo/novalab-logo-mono.svg" alt="NOVA Lab" style="height: 40px" />
+        </div>
+        <div class="state">
+          <p class="t-small muted">Inverse (ink bg)</p>
+          <div style="background: #0b0f19; padding: 16px; border-radius: 8px">
+            <img src="../../logo/novalab-logo-inverse.svg" alt="NOVA Lab" style="height: 40px" />
+          </div>
+        </div>
+        <div class="state">
+          <p class="t-small muted">Mark + favicon</p>
+          <div style="display: flex; gap: 16px; align-items: end">
+            <img
+              src="../../logo/novalab-mark-color.svg"
+              alt=""
+              style="height: 56px; width: auto"
+            /><img src="../../favicon/favicon.svg" alt="" style="height: 56px" /><img
+              src="../../favicon/favicon.svg"
+              alt=""
+              style="height: 32px"
+            /><img src="../../favicon/favicon.svg" alt="" style="height: 16px" />
+          </div>
+        </div>
+        <div class="state">
+          <p class="t-small muted">Skip link (first Tab)</p>
+          <a class="skip-link is-shown" style="position: static" href="#">Skip to content</a>
+        </div>
+        <div class="state">
+          <p class="t-small muted">TBC chip (design/staging only)</p>
+          <span class="tbc">[TBC-10: legal entity name]</span>
+        </div>
+      </div>
+      <h2 class="sec">Color</h2>
+      <p class="lead muted">
+        Contrast ratios from the NVA-3 mini-kit table (WCAG 2.x). Accent is decorative only.
+      </p>
+      <div class="sws">
+        <div class="sw">
+          <div class="chip" style="background: #0b0f19"></div>
+          <p class="t-label">ink</p>
+          <p class="t-small muted">#0B0F19 · Text, headings, dark bands</p>
+          <p class="t-small">19.15 on paper</p>
+        </div>
+        <div class="sw">
+          <div class="chip" style="background: #475467"></div>
+          <p class="t-label">ink-muted</p>
+          <p class="t-small muted">#475467 · Secondary text</p>
+          <p class="t-small">7.69 on paper</p>
+        </div>
+        <div class="sw">
+          <div class="chip" style="background: #ffffff"></div>
+          <p class="t-label">paper</p>
+          <p class="t-small muted">#FFFFFF · Page background</p>
+          <p class="t-small"></p>
+        </div>
+        <div class="sw">
+          <div class="chip" style="background: #f5f6f8"></div>
+          <p class="t-label">surface</p>
+          <p class="t-small muted">#F5F6F8 · Alternate sections, cards</p>
+          <p class="t-small"></p>
+        </div>
+        <div class="sw">
+          <div class="chip" style="background: #1d2433"></div>
+          <p class="t-label">surface-dark</p>
+          <p class="t-small muted">#1D2433 · Dividers on ink</p>
+          <p class="t-small"></p>
+        </div>
+        <div class="sw">
+          <div class="chip" style="background: #3b2fd1"></div>
+          <p class="t-label">primary</p>
+          <p class="t-small muted">#3B2FD1 · Buttons, links, focus, active nav</p>
+          <p class="t-small">8.36 on paper</p>
+        </div>
+        <div class="sw">
+          <div class="chip" style="background: #2a1fa8"></div>
+          <p class="t-label">primary-hover</p>
+          <p class="t-small muted">#2A1FA8 · Hover / active</p>
+          <p class="t-small">11.29 with white</p>
+        </div>
+        <div class="sw">
+          <div class="chip" style="background: #eeecff"></div>
+          <p class="t-label">primary-tint</p>
+          <p class="t-small muted">#EEECFF · Secondary hover, chips</p>
+          <p class="t-small">7.19 with primary</p>
+        </div>
+        <div class="sw">
+          <div class="chip" style="background: #7a6cff"></div>
+          <p class="t-label">accent</p>
+          <p class="t-small muted">#7A6CFF · Decorative only (Ø slash)</p>
+          <p class="t-small">3.88, non-text only</p>
+        </div>
+        <div class="sw">
+          <div class="chip" style="background: #e4e7ec"></div>
+          <p class="t-label">on-dark</p>
+          <p class="t-small muted">#E4E7EC · Text on ink</p>
+          <p class="t-small">15.45 on ink</p>
+        </div>
+        <div class="sw">
+          <div class="chip" style="background: #aab2c0"></div>
+          <p class="t-label">on-dark-muted</p>
+          <p class="t-small muted">#AAB2C0 · Secondary text on ink</p>
+          <p class="t-small">8.97 on ink</p>
+        </div>
+        <div class="sw">
+          <div class="chip" style="background: #b8b0ff"></div>
+          <p class="t-label">accent-on-dark</p>
+          <p class="t-small muted">#B8B0FF · Links, focus, CTA on ink</p>
+          <p class="t-small">9.75 on ink</p>
+        </div>
+        <div class="sw">
+          <div class="chip" style="background: #d0d5dd"></div>
+          <p class="t-label">border</p>
+          <p class="t-small muted">#D0D5DD · Decorative dividers only</p>
+          <p class="t-small">1.47, not for controls</p>
+        </div>
+        <div class="sw">
+          <div class="chip" style="background: #7b8494"></div>
+          <p class="t-label">border-strong</p>
+          <p class="t-small muted">#7B8494 · Input / checkbox borders</p>
+          <p class="t-small">3.77 on paper</p>
+        </div>
+        <div class="sw">
+          <div class="chip" style="background: #b42318"></div>
+          <p class="t-label">error</p>
+          <p class="t-small muted">#B42318 · Error text & borders</p>
+          <p class="t-small">6.57 on paper</p>
+        </div>
+        <div class="sw">
+          <div class="chip" style="background: #fef3f2"></div>
+          <p class="t-label">error-tint</p>
+          <p class="t-small muted">#FEF3F2 · Error banner bg</p>
+          <p class="t-small"></p>
+        </div>
+        <div class="sw">
+          <div class="chip" style="background: #067647"></div>
+          <p class="t-label">success</p>
+          <p class="t-small muted">#067647 · Success icon & text</p>
+          <p class="t-small">5.69 on paper</p>
+        </div>
+        <div class="sw">
+          <div class="chip" style="background: #ecfdf3"></div>
+          <p class="t-label">success-tint</p>
+          <p class="t-small muted">#ECFDF3 · Success panel bg</p>
+          <p class="t-small"></p>
+        </div>
+        <div class="sw">
+          <div class="chip" style="background: #e4e7ec"></div>
+          <p class="t-label">disabled-bg</p>
+          <p class="t-small muted">#E4E7EC · Disabled control bg</p>
+          <p class="t-small"></p>
+        </div>
+        <div class="sw">
+          <div class="chip" style="background: #667085"></div>
+          <p class="t-label">disabled-fg</p>
+          <p class="t-small muted">#667085 · Disabled text</p>
+          <p class="t-small">exempt (WCAG)</p>
+        </div>
+      </div>
+      <div class="grid-2c">
+        <div>
+          <h2 class="sec">Type</h2>
+          <p class="lead muted">Mobile → desktop (≥ 1024px). Max line length 68ch.</p>
+          <div class="trow">
+            <p class="t-small muted">40/48 → 64/72 · Space Grotesk 700</p>
+            <p class="t-display">Display</p>
+          </div>
+          <div class="trow">
+            <p class="t-small muted">32/40 → 48/56 · 700</p>
+            <p class="t-h1">Heading 1</p>
+          </div>
+          <div class="trow">
+            <p class="t-small muted">26/34 → 36/44 · 700</p>
+            <p class="t-h2">Heading 2</p>
+          </div>
+          <div class="trow">
+            <p class="t-small muted">20/28 → 24/32 · 500</p>
+            <p class="t-h3">Heading 3</p>
+          </div>
+          <div class="trow">
+            <p class="t-small muted">18/28 → 20/32 · Inter 400</p>
+            <p class="t-body-lg">Body large: NOVA Lab designs user interfaces.</p>
+          </div>
+          <div class="trow">
+            <p class="t-small muted">16/24 → 16/26 · Inter 400</p>
+            <p class="">Body: One team across design, motion, and development.</p>
+          </div>
+          <div class="trow">
+            <p class="t-small muted">14/20 → 14/22</p>
+            <p class="t-small">Small: helper text and meta.</p>
+          </div>
+          <div class="trow">
+            <p class="t-small muted">14/20 · 600</p>
+            <p class="t-label">Label: Email</p>
+          </div>
+          <div class="trow">
+            <p class="t-small muted">12/16 → 13/16 · 600 · 0.08em</p>
+            <p class="t-eyebrow">Eyebrow: What we do</p>
+          </div>
+        </div>
+        <div>
+          <h2 class="sec">Spacing</h2>
+          <p class="lead muted">
+            4px base. Section rhythm 64 (mobile) / 96 (desktop). Radius sm 4 · md 8 · lg 16.
+          </p>
+          <div class="sprow">
+            <span class="t-small muted">space.1</span><span class="bar" style="width: 4px"></span
+            ><span class="t-small">4</span>
+          </div>
+          <div class="sprow">
+            <span class="t-small muted">space.2</span><span class="bar" style="width: 8px"></span
+            ><span class="t-small">8</span>
+          </div>
+          <div class="sprow">
+            <span class="t-small muted">space.3</span><span class="bar" style="width: 12px"></span
+            ><span class="t-small">12</span>
+          </div>
+          <div class="sprow">
+            <span class="t-small muted">space.4</span><span class="bar" style="width: 16px"></span
+            ><span class="t-small">16</span>
+          </div>
+          <div class="sprow">
+            <span class="t-small muted">space.5</span><span class="bar" style="width: 20px"></span
+            ><span class="t-small">20</span>
+          </div>
+          <div class="sprow">
+            <span class="t-small muted">space.6</span><span class="bar" style="width: 24px"></span
+            ><span class="t-small">24</span>
+          </div>
+          <div class="sprow">
+            <span class="t-small muted">space.8</span><span class="bar" style="width: 32px"></span
+            ><span class="t-small">32</span>
+          </div>
+          <div class="sprow">
+            <span class="t-small muted">space.10</span><span class="bar" style="width: 40px"></span
+            ><span class="t-small">40</span>
+          </div>
+          <div class="sprow">
+            <span class="t-small muted">space.12</span><span class="bar" style="width: 48px"></span
+            ><span class="t-small">48</span>
+          </div>
+          <div class="sprow">
+            <span class="t-small muted">space.16</span><span class="bar" style="width: 64px"></span
+            ><span class="t-small">64</span>
+          </div>
+          <div class="sprow">
+            <span class="t-small muted">space.20</span><span class="bar" style="width: 80px"></span
+            ><span class="t-small">80</span>
+          </div>
+          <div class="sprow">
+            <span class="t-small muted">space.24</span><span class="bar" style="width: 96px"></span
+            ><span class="t-small">96</span>
+          </div>
+          <div class="sprow">
+            <span class="t-small muted">space.32</span><span class="bar" style="width: 128px"></span
+            ><span class="t-small">128</span>
+          </div>
+        </div>
+      </div>
+      <h2 class="sec">Buttons</h2>
+      <p class="lead muted">
+        48px (md) / 44px (sm) high. Focus ring 2px primary, offset 2px (accent-on-dark on ink).
+        Submit is never disabled before input; it validates on submit.
+      </p>
+      <p class="t-label row-title">Primary</p>
+      <div class="states">
+        <div class="state">
+          <p class="t-small muted">Default</p>
+          <a class="btn btn--primary" href="#">Contact us</a>
+        </div>
+        <div class="state">
+          <p class="t-small muted">Hover</p>
+          <a class="btn btn--primary is-hover" href="#">Contact us</a>
+        </div>
+        <div class="state">
+          <p class="t-small muted">Focus-visible</p>
+          <a class="btn btn--primary is-focus" href="#">Contact us</a>
+        </div>
+        <div class="state">
+          <p class="t-small muted">Active / pressed</p>
+          <a class="btn btn--primary is-active" href="#">Contact us</a>
+        </div>
+        <div class="state">
+          <p class="t-small muted">Disabled</p>
+          <a class="btn btn--primary" aria-disabled="true">Contact us</a>
+        </div>
+      </div>
+      <p class="t-label row-title">Secondary</p>
+      <div class="states">
+        <div class="state">
+          <p class="t-small muted">Default</p>
+          <a class="btn btn--secondary" href="#">Back to home</a>
+        </div>
+        <div class="state">
+          <p class="t-small muted">Hover</p>
+          <a class="btn btn--secondary is-hover" href="#">Back to home</a>
+        </div>
+        <div class="state">
+          <p class="t-small muted">Focus-visible</p>
+          <a class="btn btn--secondary is-focus" href="#">Back to home</a>
+        </div>
+        <div class="state">
+          <p class="t-small muted">Active / pressed</p>
+          <a class="btn btn--secondary is-active" href="#">Back to home</a>
+        </div>
+        <div class="state">
+          <p class="t-small muted">Disabled</p>
+          <a class="btn btn--secondary" aria-disabled="true">Back to home</a>
+        </div>
+      </div>
+      <p class="t-label row-title">Tertiary</p>
+      <div class="states">
+        <div class="state">
+          <p class="t-small muted">Default</p>
+          <a class="btn btn--tertiary" href="#">Send another message</a>
+        </div>
+        <div class="state">
+          <p class="t-small muted">Hover</p>
+          <a class="btn btn--tertiary is-hover" href="#">Send another message</a>
+        </div>
+        <div class="state">
+          <p class="t-small muted">Focus-visible</p>
+          <a class="btn btn--tertiary is-focus" href="#">Send another message</a>
+        </div>
+        <div class="state">
+          <p class="t-small muted">Active / pressed</p>
+          <a class="btn btn--tertiary is-active" href="#">Send another message</a>
+        </div>
+        <div class="state">
+          <p class="t-small muted">Disabled</p>
+          <a class="btn btn--tertiary" aria-disabled="true">Send another message</a>
+        </div>
+      </div>
+      <p class="t-label row-title">Loading (submit)</p>
+      <div class="states">
+        <div class="state">
+          <p class="t-small muted">Loading</p>
+          <button class="btn btn--primary" aria-busy="true">
+            <span class="spinner" aria-hidden="true"></span>Sending…
+          </button>
+        </div>
+        <div class="state">
+          <p class="t-small muted">Small (header) 44px</p>
+          <a class="btn btn--primary btn--sm" href="#">Contact us</a>
+        </div>
+        <div class="state">
+          <p class="t-small muted">Small hover</p>
+          <a class="btn btn--primary btn--sm is-hover" href="#">Contact us</a>
+        </div>
+      </div>
+      <div class="on-dark darkbox">
+        <p class="t-label row-title" style="color: #e4e7ec">Primary on dark (CTA band)</p>
+        <div class="states">
+          <div class="state">
+            <p class="t-small muted">Default</p>
+            <a class="btn btn--on-dark" href="#">Contact us</a>
+          </div>
+          <div class="state">
+            <p class="t-small muted">Hover</p>
+            <a class="btn btn--on-dark is-hover" href="#">Contact us</a>
+          </div>
+          <div class="state">
+            <p class="t-small muted">Focus-visible</p>
+            <a class="btn btn--on-dark is-focus" href="#">Contact us</a>
+          </div>
+          <div class="state">
+            <p class="t-small muted">Active</p>
+            <a class="btn btn--on-dark is-active" href="#">Contact us</a>
+          </div>
+        </div>
+      </div>
+      <h2 class="sec">Links</h2>
+      <div class="states">
+        <div class="state">
+          <p class="t-small muted">Inline default</p>
+          <p>Read the <a class="link" href="#">Privacy Policy</a>.</p>
+        </div>
+        <div class="state">
+          <p class="t-small muted">Inline hover</p>
+          <p>Read the <a class="link is-hover" href="#">Privacy Policy</a>.</p>
+        </div>
+        <div class="state">
+          <p class="t-small muted">Inline focus</p>
+          <p>Read the <a class="link is-focus" href="#">Privacy Policy</a>.</p>
+        </div>
+        <div class="state">
+          <p class="t-small muted">Standalone default</p>
+          <a class="link-standalone" href="#"
+            >Explore our services <span class="arrow" aria-hidden="true">→</span></a
+          >
+        </div>
+        <div class="state">
+          <p class="t-small muted">Standalone hover</p>
+          <a class="link-standalone is-hover" href="#"
+            >Explore our services <span class="arrow" aria-hidden="true">→</span></a
+          >
+        </div>
+        <div class="state">
+          <p class="t-small muted">Standalone focus</p>
+          <a class="link-standalone is-focus" href="#"
+            >Explore our services <span class="arrow" aria-hidden="true">→</span></a
+          >
+        </div>
+      </div>
+      <h2 class="sec">Navigation</h2>
+      <p class="lead muted">
+        Desktop nav ≥ 1024px. Below 1024px: menu button (44×44) + full-screen panel, CTA stays
+        visible.
+      </p>
+      <div class="states">
+        <div class="state">
+          <p class="t-small muted">Default</p>
+          <nav class="nav navdemo"><a href="#" class="">Services</a></nav>
+        </div>
+        <div class="state">
+          <p class="t-small muted">Hover</p>
+          <nav class="nav navdemo"><a href="#" class="is-hover">Services</a></nav>
+        </div>
+        <div class="state">
+          <p class="t-small muted">Focus-visible</p>
+          <nav class="nav navdemo"><a href="#" class="is-focus">Services</a></nav>
+        </div>
+        <div class="state">
+          <p class="t-small muted">Current page</p>
+          <nav class="nav navdemo"><a href="#" class="" aria-current="page">Services</a></nav>
+        </div>
+        <div class="state">
+          <p class="t-small muted">Menu button</p>
+          <button class="menu-btn" aria-expanded="false" aria-label="Open menu">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            >
+              <path d="M4 7h16M4 12h16M4 17h16" />
+            </svg>
+          </button>
+        </div>
+        <div class="state">
+          <p class="t-small muted">Menu button hover + focus</p>
+          <button class="menu-btn is-hover is-focus" aria-label="Open menu">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            >
+              <path d="M4 7h16M4 12h16M4 17h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="states">
+        <div class="state">
+          <p class="t-small muted">Menu item default</p>
+          <div class="mobile-menu is-open demo"><a class="menu-item" href="#">About</a></div>
+        </div>
+        <div class="state">
+          <p class="t-small muted">Menu item hover/pressed</p>
+          <div class="mobile-menu is-open demo">
+            <a class="menu-item is-hover" href="#">About</a>
+          </div>
+        </div>
+        <div class="state">
+          <p class="t-small muted">Menu item current</p>
+          <div class="mobile-menu is-open demo">
+            <a class="menu-item" href="#" aria-current="page">About</a>
+          </div>
+        </div>
+      </div>
+      <h2 class="sec">Form fields</h2>
+      <p class="lead muted">
+        Label always visible above the field. Error = 2px border + icon + text, linked with
+        aria-describedby.
+      </p>
+      <div class="states wide">
+        <div class="state">
+          <p class="t-small muted">Default (empty)</p>
+          <div class="field">
+            <label>Email <span class="req">*</span></label
+            ><input class="input" />
+          </div>
+        </div>
+        <div class="state">
+          <p class="t-small muted">Hover</p>
+          <div class="field">
+            <label>Email <span class="req">*</span></label
+            ><input class="input is-hover" />
+          </div>
+        </div>
+        <div class="state">
+          <p class="t-small muted">Focus</p>
+          <div class="field">
+            <label>Email <span class="req">*</span></label
+            ><input class="input is-focus" value="rani@example.com" />
+          </div>
+        </div>
+        <div class="state">
+          <p class="t-small muted">Filled</p>
+          <div class="field">
+            <label>Email <span class="req">*</span></label
+            ><input class="input" value="rani@example.com" />
+          </div>
+        </div>
+        <div class="state">
+          <p class="t-small muted">Error</p>
+          <div class="field" data-invalid>
+            <label>Email <span class="req">*</span></label
+            ><input class="input" value="rani@" aria-invalid="true" />
+            <p class="field-error">
+              <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13Zm-.75 3.25h1.5v4.5h-1.5v-4.5Zm0 5.75h1.5V12h-1.5v-1.5Z"
+                /></svg
+              ><span>Enter a valid email address, for example name@example.com.</span>
+            </p>
+          </div>
+        </div>
+        <div class="state">
+          <p class="t-small muted">Disabled</p>
+          <div class="field">
+            <label>Organization</label><input class="input" disabled value="Studio Rani" />
+          </div>
+        </div>
+        <div class="state">
+          <p class="t-small muted">Select default</p>
+          <div class="field">
+            <label>Topic <span class="req">*</span></label
+            ><select class="select">
+              <option>Choose a topic</option>
+            </select>
+          </div>
+        </div>
+        <div class="state">
+          <p class="t-small muted">Select prefilled (?topic=)</p>
+          <div class="field">
+            <label>Topic <span class="req">*</span></label
+            ><select class="select">
+              <option>Project inquiry</option>
+            </select>
+          </div>
+        </div>
+        <div class="state">
+          <p class="t-small muted">Select error</p>
+          <div class="field" data-invalid>
+            <label>Topic <span class="req">*</span></label
+            ><select class="select">
+              <option>Choose a topic</option>
+            </select>
+            <p class="field-error">
+              <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13Zm-.75 3.25h1.5v4.5h-1.5v-4.5Zm0 5.75h1.5V12h-1.5v-1.5Z"
+                /></svg
+              ><span>Choose a topic.</span>
+            </p>
+          </div>
+        </div>
+        <div class="state">
+          <p class="t-small muted">Textarea over limit</p>
+          <div class="field" data-invalid>
+            <label>Message <span class="req">*</span></label
+            ><textarea class="textarea" style="min-height: 96px">
+We’re planning a new website…</textarea>
+            <div class="field-meta">
+              <p class="field-error">
+                <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+                  <path
+                    fill="currentColor"
+                    d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13Zm-.75 3.25h1.5v4.5h-1.5v-4.5Zm0 5.75h1.5V12h-1.5v-1.5Z"
+                  /></svg
+                ><span>Your message can be up to 5,000 characters. It is now 5,214.</span>
+              </p>
+              <span class="counter is-over">5,214 / 5,000</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="sec">Checkbox (consent)</h2>
+      <p class="lead muted">20px box, click area ≥ 44px including label.</p>
+      <div class="states wide">
+        <div class="state">
+          <p class="t-small muted">Unchecked</p>
+          <div class="field">
+            <label class="check"
+              ><input type="checkbox" class="" /><span
+                >I agree to the <a class="link" href="#">Privacy Policy</a>.
+                <span class="req">*</span></span
+              ></label
+            >
+          </div>
+        </div>
+        <div class="state">
+          <p class="t-small muted">Hover</p>
+          <div class="field">
+            <label class="check"
+              ><input type="checkbox" class="is-hover" /><span
+                >I agree to the <a class="link" href="#">Privacy Policy</a>.
+                <span class="req">*</span></span
+              ></label
+            >
+          </div>
+        </div>
+        <div class="state">
+          <p class="t-small muted">Focus-visible</p>
+          <div class="field">
+            <label class="check"
+              ><input type="checkbox" class="is-focus" /><span
+                >I agree to the <a class="link" href="#">Privacy Policy</a>.
+                <span class="req">*</span></span
+              ></label
+            >
+          </div>
+        </div>
+        <div class="state">
+          <p class="t-small muted">Checked</p>
+          <div class="field">
+            <label class="check"
+              ><input type="checkbox" class="" checked /><span
+                >I agree to the <a class="link" href="#">Privacy Policy</a>.
+                <span class="req">*</span></span
+              ></label
+            >
+          </div>
+        </div>
+        <div class="state">
+          <p class="t-small muted">Error</p>
+          <div class="field" data-invalid>
+            <label class="check"
+              ><input type="checkbox" class="" /><span
+                >I agree to the <a class="link" href="#">Privacy Policy</a>.
+                <span class="req">*</span></span
+              ></label
+            >
+            <p class="field-error">
+              <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13Zm-.75 3.25h1.5v4.5h-1.5v-4.5Zm0 5.75h1.5V12h-1.5v-1.5Z"
+                /></svg
+              ><span>Check the box to agree before sending.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <h2 class="sec">Form status</h2>
+      <div class="states wide2">
+        <div class="state">
+          <p class="t-small muted">Validation summary (focus moves here)</p>
+          <div class="banner banner--error">
+            <span class="banner__icon"
+              ><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm-1 5h2v7h-2V7Zm0 9h2v2h-2v-2Z"
+                /></svg
+            ></span>
+            <div>
+              <p class="banner__title">2 fields need your attention:</p>
+              <ul>
+                <li><a class="link" href="#">Email</a></li>
+                <li><a class="link" href="#">Privacy consent</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="state">
+          <p class="t-small muted">Send failed (role=alert)</p>
+          <div class="banner banner--error">
+            <span class="banner__icon"
+              ><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm-1 5h2v7h-2V7Zm0 9h2v2h-2v-2Z"
+                /></svg
+            ></span>
+            <div>
+              <p class="banner__title">Your message wasn’t sent.</p>
+              <p class="banner__body">
+                Check your connection and try again. You can also email us at
+                <a class="link" href="#">naufalhanifr001@gmail.com</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="state">
+          <p class="t-small muted">Rate limited (role=alert)</p>
+          <div class="banner banner--error">
+            <span class="banner__icon"
+              ><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm-1 5h2v7h-2V7Zm0 9h2v2h-2v-2Z"
+                /></svg
+            ></span>
+            <div>
+              <p class="banner__title">Please wait a moment.</p>
+              <p class="banner__body">
+                Too many attempts in a short time. Please try again in a few minutes, or email us at
+                <a class="link" href="#">naufalhanifr001@gmail.com</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="state">
+          <p class="t-small muted">Success (role=status)</p>
+          <div class="success-panel">
+            <div class="success-panel__icon">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M5 12.5l4.5 4.5L19 7.5" />
+              </svg>
+            </div>
+            <h2 class="t-h3" style="margin-top: 16px">Message sent</h2>
+            <p>Thanks, Rani. Your message has reached our team.</p>
+          </div>
+        </div>
+      </div>
+      <h2 class="sec">Cards</h2>
+      <p class="lead muted">
+        Whole card is clickable through one link in the title (stretched pseudo-element), not an
+        &lt;a&gt; wrapping everything.
+      </p>
+      <div class="states wide">
+        <div class="state">
+          <p class="t-small muted">Default</p>
+          <article class="card card--link">
+            <p class="card__num">01</p>
+            <h3 class="t-h3 card__title"><a href="#">UI/UX Design</a></h3>
+            <p class="muted">Interfaces that are clear, accessible, and easy to use.</p>
+            <p class="card__more" aria-hidden="true">Learn more <span class="arrow">→</span></p>
+          </article>
+        </div>
+        <div class="state">
+          <p class="t-small muted">Hover (shadow.md + underline)</p>
+          <article class="card card--link is-hover">
+            <p class="card__num">01</p>
+            <h3 class="t-h3 card__title"><a href="#">UI/UX Design</a></h3>
+            <p class="muted">Interfaces that are clear, accessible, and easy to use.</p>
+            <p class="card__more" aria-hidden="true">Learn more <span class="arrow">→</span></p>
+          </article>
+        </div>
+        <div class="state">
+          <p class="t-small muted">Focus-visible (ring on card)</p>
+          <article class="card card--link is-focus">
+            <p class="card__num">01</p>
+            <h3 class="t-h3 card__title"><a href="#">UI/UX Design</a></h3>
+            <p class="muted">Interfaces that are clear, accessible, and easy to use.</p>
+            <p class="card__more" aria-hidden="true">Learn more <span class="arrow">→</span></p>
+          </article>
+        </div>
+        <div class="state">
+          <p class="t-small muted">Active / pressed</p>
+          <article class="card card--link is-active">
+            <p class="card__num">01</p>
+            <h3 class="t-h3 card__title"><a href="#">UI/UX Design</a></h3>
+            <p class="muted">Interfaces that are clear, accessible, and easy to use.</p>
+            <p class="card__more" aria-hidden="true">Learn more <span class="arrow">→</span></p>
+          </article>
+        </div>
+        <div class="state">
+          <p class="t-small muted">Value card (static)</p>
+          <article class="card card--surface">
+            <div class="accent-bar"></div>
+            <h3 class="t-h3">Clarity</h3>
+            <p class="muted">Simple over clever, in design and in communication.</p>
+          </article>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
