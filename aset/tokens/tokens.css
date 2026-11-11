@@ -1,0 +1,74 @@
+/* NOVA Lab design tokens v1.0 (NVA-8). Mirrors tokens.json. Light theme only. */
+:root {
+  --color-ink: #0b0f19;
+  --color-ink-muted: #475467;
+  --color-paper: #ffffff;
+  --color-surface: #f5f6f8;
+  --color-surface-dark: #1d2433;
+  --color-primary: #3b2fd1;
+  --color-primary-hover: #2a1fa8;
+  --color-primary-tint: #eeecff;
+  --color-accent: #7a6cff; /* decorative only, never small text */
+  --color-on-dark: #e4e7ec;
+  --color-on-dark-muted: #aab2c0;
+  --color-accent-on-dark: #b8b0ff;
+  --color-border: #d0d5dd; /* decorative dividers only */
+  --color-border-strong: #7b8494; /* control boundaries */
+  --color-error: #b42318;
+  --color-error-tint: #fef3f2;
+  --color-success: #067647;
+  --color-success-tint: #ecfdf3;
+  --color-disabled-bg: #e4e7ec;
+  --color-disabled-fg: #667085;
+  --color-tbc-fg: #93370d; /* design/staging only */
+  --color-tbc-bg: #fef6ee;
+
+  --font-display:
+    "Space Grotesk", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-body: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 1px 2px rgba(11, 15, 25, 0.06);
+  --shadow-md: 0 8px 24px rgba(11, 15, 25, 0.08);
+
+  --motion-fast: 150ms;
+  --motion-base: 250ms;
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+
+  --container-max: 1200px;
+  --margin: 20px;
+  --gutter: 16px;
+  --header-h: 64px;
+  --section-y: 64px;
+  --measure: 68ch;
+
+  --z-header: 100;
+  --z-menu: 200;
+  --z-toast: 300;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --margin: 32px;
+    --gutter: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --margin: 40px;
+    --header-h: 72px;
+    --section-y: 96px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-fast: 0ms;
+    --motion-base: 0ms;
+  }
+}
