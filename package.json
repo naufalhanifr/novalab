@@ -17,7 +17,7 @@
     "lhci": "lhci autorun"
   },
   "dependencies": {
-    "astro": "^7.4.10"
+    "astro": "^7.4.0"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.12",
@@ -32,6 +32,6 @@
     "tailwindcss": "^4.3.5",
     "typescript": "~6.0.3",
     "typescript-eslint": "^8.72.2",
-    "wrangler": "^4.160.0"
+    "wrangler": "^4.150.0"
   }
 }

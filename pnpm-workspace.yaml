@@ -3,3 +3,6 @@ allowBuilds:
   esbuild: true
   sharp: true
   workerd: true
+
+# Supply-chain policy: refuse packages published less than 24h ago (same value locally and in CI).
+minimumReleaseAge: 1440
