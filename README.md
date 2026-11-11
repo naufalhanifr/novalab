@@ -1,6 +1,6 @@
-# NOVA Lab Website
+# Evora Website
 
-Official website of NØVA Lab.
+Official website of Evora.
 
 ## Technology Stack
 
@@ -30,4 +30,4 @@ pnpm run lint && pnpm run check && pnpm run format:check
 
 See [docs/ops/runbook.md](docs/ops/runbook.md) for CI/CD, preview, production, and rollback.
 
-Repository: https://github.com/naufalhanifr/novalab
+Repository: https://github.com/naufalhanifr/evora
