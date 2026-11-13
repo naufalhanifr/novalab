@@ -6,7 +6,7 @@ Official website of Evora.
 
 - Astro (static output) + TypeScript + Tailwind CSS (decision D1, NVA-4)
 - Hosting: Cloudflare Pages (D2), contact form via Pages Function (D3)
-- Light visual theme; English-only MVP (`lang="en"`), UI strings in `src/i18n/ui.ts` (PRD v0.2)
+- Light theme, indigo palette, Space Grotesk + Inter (brand mini-kit v1.0, TBC-20 option a); English-only MVP (`lang="en"`), UI strings in `src/i18n/ui.ts` (PRD v0.4)
 
 ## Repository layout
 
