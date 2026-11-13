@@ -1,6 +1,6 @@
 # High-fi frames + UF1 prototype (NVA-8)
 
-Design reference for the NOVA Lab MVP website (PRD v0.2). **Not production code.** The frontend implements the pages in Astro + Tailwind using `aset/tokens/` and these frames as the spec.
+Design reference for the Evora MVP website (PRD v0.3). Re-rendered with the Evora logo in NVA-48 (TBC-20 option a). **Not production code.** The frontend implements the pages in Astro + Tailwind using `aset/tokens/` and these frames as the spec.
 
 ## Open the prototype
 
@@ -16,6 +16,8 @@ Other pages: `about.html`, `privacy.html`, `404.html`. Component and state sheet
 Frame-rendering URL params: `?frame=1` (hides the prototype panel), `?menu=open`, `?scrolled=1`, `?topic=project-inquiry`, and on Contact `?state=filled|error|over|sending|success|fail|ratelimit`.
 
 ## Frames
+
+Re-render all frames after a prototype change: `node render.mjs aset/hifi/prototype aset/hifi/frames` with Playwright (script attached to NVA-48).
 
 `frames/` holds PNG exports at 1× (360, 768, and 1440 px wide, full page unless noted). `uf1-*` are the click-through steps. The full index with notes is in the NVA-8 issue document `hifi`.
 

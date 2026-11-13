@@ -1,5 +1,5 @@
 /* global document, window, URLSearchParams, setTimeout */
-// NOVA Lab high-fi click prototype (NVA-8). Design reference only, not production code.
+// Evora high-fi click prototype (NVA-8). Design reference only, not production code.
 // URL params for rendering frames: ?frame=1 (hide prototype panel), ?menu=open, ?scrolled=1,
 // ?topic=project-inquiry, ?state=error|sending|success|fail|ratelimit|over (contact page).
 
@@ -39,7 +39,7 @@ function header() {
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header" id="site-header">
     <div class="container site-header__bar">
-      <a class="logo" href="index.html"><img src="../../logo/novalab-logo-color.svg" alt="NOVA Lab" width="156" height="30"></a>
+      <a class="logo" href="index.html"><img src="../../../public/brand/evora-wordmark-on-light.svg" alt="Evora" width="121" height="24"></a>
       <nav class="nav" aria-label="Main">${desk}</nav>
       <a class="btn btn--primary btn--sm" href="contact.html"${page === "contact" ? ' aria-current="page"' : ""}>Contact us</a>
       <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">${ICON.menu}${ICON.close}</button>
@@ -57,7 +57,7 @@ function footer() {
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a class="logo" href="index.html"><img src="../../logo/novalab-logo-inverse.svg" alt="NOVA Lab" width="156" height="30"></a>
+          <a class="logo" href="index.html"><img src="../../../public/brand/evora-wordmark-on-dark.svg" alt="Evora" width="162" height="32"></a>
           <p>Design, motion, and web, built by one team.</p>
         </div>
         <div class="footer-col">
