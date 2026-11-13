@@ -1,5 +1,11 @@
-/* NOVA Lab design tokens v1.0 (NVA-8). Mirrors tokens.json. Light theme only. */
+/* Evora design tokens v1.1 (NVA-8, NVA-48). Mirrors tokens.json. Light theme only. */
 :root {
+  /* logo.* are baked into public/brand SVGs; listed for reference, not for UI */
+  --logo-ink: #0b0b0f;
+  --logo-paper: #f4f4f5;
+  --logo-h-header: 20px;
+  --logo-h-header-lg: 24px;
+  --logo-h-footer: 32px;
   --color-ink: #0b0f19;
   --color-ink-muted: #475467;
   --color-paper: #ffffff;

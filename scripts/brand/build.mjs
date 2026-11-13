@@ -12,7 +12,7 @@ const root = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
 const out = join(root, "public", "brand");
 mkdirSync(out, { recursive: true });
 
-// Palette — monochrome, matches the existing dark identity.
+// Logo colors (monochrome). UI palette lives in aset/tokens (mini-kit NVA-3 §2).
 const INK = "#0B0B0F"; // background / dark
 const PAPER = "#F4F4F5"; // foreground on dark
 const STROKE = 16; // stroke weight on a 100-unit x-height

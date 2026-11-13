@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Design system | NOVA Lab (NVA-8)</title>
+    <title>Design system | Evora (NVA-8)</title>
     <link rel="stylesheet" href="assets/proto.css" />
     <style>
       .ds h2.sec {
@@ -136,7 +136,7 @@
   <body class="ds is-frame">
     <main class="container" style="padding-top: 48px; padding-bottom: 96px">
       <p class="t-eyebrow">NVA-8 · Design system v1.0 · light theme</p>
-      <h1 class="t-h1" style="margin-top: 8px">NOVA Lab design system</h1>
+      <h1 class="t-h1" style="margin-top: 8px">Evora design system</h1>
       <p class="t-body-lg muted measure" style="margin-top: 12px">
         Tokens and components used by the high-fi frames. Source of truth for values:
         <code>aset/tokens/tokens.json</code>. Every interactive state below is a forced-state render
@@ -144,37 +144,59 @@
       </p>
       <h2 class="sec">Logo</h2>
       <p class="lead muted">
-        SVGs carry <code>&lt;title&gt;NOVA Lab&lt;/title&gt;</code> and
-        <code>aria-label="NOVA Lab"</code>. Clear space: 1× cap height on all sides. Minimum cap
-        height 16px.
+        Evora logo from <code>public/brand/</code> (NVA-11). One color only: ink on light, paper on
+        dark. Link name "Evora" (<code>alt="Evora"</code>). Clear space ½ wordmark height; min
+        height 16px; header 20px (≥1024px: 24px), footer 32px. Never on <code>primary</code>.
       </p>
       <div class="states wide">
         <div class="state">
-          <p class="t-small muted">Color (light bg)</p>
-          <img src="../../logo/novalab-logo-color.svg" alt="NOVA Lab" style="height: 40px" />
+          <p class="t-small muted">Wordmark on light</p>
+          <img
+            src="../../../public/brand/evora-wordmark-on-light.svg"
+            alt="Evora"
+            style="height: 40px"
+          />
         </div>
         <div class="state">
-          <p class="t-small muted">Mono</p>
-          <img src="../../logo/novalab-logo-mono.svg" alt="NOVA Lab" style="height: 40px" />
-        </div>
-        <div class="state">
-          <p class="t-small muted">Inverse (ink bg)</p>
+          <p class="t-small muted">Wordmark on ink</p>
           <div style="background: #0b0f19; padding: 16px; border-radius: 8px">
-            <img src="../../logo/novalab-logo-inverse.svg" alt="NOVA Lab" style="height: 40px" />
+            <img
+              src="../../../public/brand/evora-wordmark-on-dark.svg"
+              alt="Evora"
+              style="height: 40px"
+            />
           </div>
         </div>
         <div class="state">
-          <p class="t-small muted">Mark + favicon</p>
+          <p class="t-small muted">Header 20 / 24px, footer 32px</p>
           <div style="display: flex; gap: 16px; align-items: end">
             <img
-              src="../../logo/novalab-mark-color.svg"
+              src="../../../public/brand/evora-wordmark-on-light.svg"
               alt=""
-              style="height: 56px; width: auto"
-            /><img src="../../favicon/favicon.svg" alt="" style="height: 56px" /><img
-              src="../../favicon/favicon.svg"
+              style="height: 20px"
+            /><img
+              src="../../../public/brand/evora-wordmark-on-light.svg"
+              alt=""
+              style="height: 24px"
+            /><img
+              src="../../../public/brand/evora-wordmark-on-light.svg"
               alt=""
               style="height: 32px"
-            /><img src="../../favicon/favicon.svg" alt="" style="height: 16px" />
+            />
+          </div>
+        </div>
+        <div class="state">
+          <p class="t-small muted">Symbol + app icon</p>
+          <div style="display: flex; gap: 16px; align-items: end">
+            <img
+              src="../../../public/brand/evora-symbol-on-light.svg"
+              alt=""
+              style="height: 56px"
+            /><img src="../../../public/brand/evora-app-icon.svg" alt="" style="height: 56px" /><img
+              src="../../../public/brand/evora-app-icon.svg"
+              alt=""
+              style="height: 32px"
+            /><img src="../../../public/brand/evora-app-icon.svg" alt="" style="height: 16px" />
           </div>
         </div>
         <div class="state">
@@ -242,7 +264,7 @@
         <div class="sw">
           <div class="chip" style="background: #7a6cff"></div>
           <p class="t-label">accent</p>
-          <p class="t-small muted">#7A6CFF · Decorative only (Ø slash)</p>
+          <p class="t-small muted">#7A6CFF · Decorative only</p>
           <p class="t-small">3.88, non-text only</p>
         </div>
         <div class="sw">
@@ -334,7 +356,7 @@
           </div>
           <div class="trow">
             <p class="t-small muted">18/28 → 20/32 · Inter 400</p>
-            <p class="t-body-lg">Body large: NOVA Lab designs user interfaces.</p>
+            <p class="t-body-lg">Body large: Evora designs user interfaces.</p>
           </div>
           <div class="trow">
             <p class="t-small muted">16/24 → 16/26 · Inter 400</p>

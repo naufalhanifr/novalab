@@ -1,4 +1,4 @@
-/* NOVA Lab high-fi prototype styles (NVA-8). Design reference only, not production code.
+/* Evora high-fi prototype styles (NVA-8). Design reference only, not production code.
    Forced-state classes (.is-hover, .is-focus, .is-active) exist so state frames can be rendered. */
 @import url("../../../tokens/tokens.css");
 
@@ -394,7 +394,7 @@ ol {
   border-radius: var(--radius-sm);
 }
 .logo img {
-  height: 25px;
+  height: 20px;
   width: auto;
 }
 .nav {
@@ -427,7 +427,7 @@ ol {
 }
 @media (min-width: 1024px) {
   .logo img {
-    height: 30px;
+    height: 24px;
   }
   .nav {
     display: flex;
@@ -810,7 +810,7 @@ ol {
   gap: 32px;
 }
 .footer-brand img {
-  height: 25px;
+  height: 32px;
   width: auto;
 }
 .footer-brand p {
@@ -868,9 +868,6 @@ ol {
   }
   .footer-grid {
     grid-template-columns: 6fr 3fr 3fr;
-  }
-  .footer-brand img {
-    height: 30px;
   }
   .footer-bottom {
     flex-direction: row;
@@ -1309,8 +1306,12 @@ ol {
   padding: 64px 0 96px;
 }
 .notfound__code {
-  width: 220px;
-  margin: 0 auto;
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--color-ink);
 }
 .notfound h1 {
   margin-top: 32px;
@@ -1336,7 +1337,7 @@ ol {
     padding: 120px 0 160px;
   }
   .notfound__code {
-    width: 320px;
+    font-size: 96px;
   }
 }
 
